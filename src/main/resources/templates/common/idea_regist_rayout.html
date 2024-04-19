@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<div>
+    <input type="text" name="ideaName" placeholder="아이디어 이름"><br>
+    <input type="number" name="ideaRank" placeholder="아이디어 난이도"><br>
+    <select name="categoryCode" id="category">
+    </select><br>
+    <button type="submit">완료</button>
+<script>
+    fetch("/idea/get_category")
+        .then(res => res.json())
+        .then(data => {
+            const $categorySelect = document.getElementById('category');
+            console.log($categorySelect)
+            for(let index in data){
+                const $option = document.createElement('option');
+                $option.value = data[index].categoryCode;
+                $option.textContent = data[index].categoryName;
+                $categorySelect.appendChild($option);
+            }
+        });
+</script>
+</div>
+</html>

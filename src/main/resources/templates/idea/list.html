@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디어 전체 조회</title>
+</head>
+<body>
+<h1>아이디어 전체 조회</h1>
+<table>
+    <tr>
+        <th>코드</th>
+        <th>이름</th>
+        <th>난이도</th>
+        <th>작업횟수</th>
+        <th>분류</th>
+    </tr>
+    <tr th:each="idea : ${ideaList}">
+        <td th:text="${idea.ideaCode}"></td>
+        <td th:text="${idea.ideaName}"></td>
+        <td th:text="${idea.ideaRank}"></td>
+        <td th:text="${idea.ideaWorkCount}"></td>
+        <td th:text="${idea.categoryName}"></td>
+    </tr>
+</table>
+<div id="paging" >
+    <!-- 맨 앞으로 이동 -->
+    <button
+            th:onclick="'location.href=\'/idea/list?page=' + @{${paging.startPage}} + '\''">
+        <<
+    </button>
+    <!-- 이전 페이지로 이동 -->
+    <button
+            th:onclick="'location.href=\'/idea/list?page=' + @{${paging.currentPage - 1}} + '\''"
+            th:disabled="${ ideaList.first }">
+        <
+    </button>
+    <!-- 숫자 버튼 -->
+    <th:block th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+        <button th:onclick="'location.href=\'/idea/list?page=' + @{${page}} + '\''"
+                th:text="${ page }"
+                th:disabled="${ paging.currentPage eq page }">
+        </button>
+    </th:block>
+    <!-- 다음 페이지로 이동 -->
+    <button
+            th:onclick="'location.href=\'/idea/list?page=' + @{${paging.currentPage + 1}} + '\''"
+            th:disabled="${ ideaList.last }">
+        >
+    </button>
+    <!-- 맨 끝으로 이동 -->
+    <button
+            th:onclick="'location.href=\'/idea/list?page=' + @{${paging.endPage}} + '\''">
+        >>
+    </button>
+</div>
+</body>
+</html>

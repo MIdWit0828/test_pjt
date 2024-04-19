@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색결과</title>
+</head>
+<body>
+<h1>검색결과</h1>
+<table>
+    <tr>
+        <th>코드</th>
+        <th>이름</th>
+        <th>난이도</th>
+        <th>작업횟수</th>
+        <th>분류</th>
+    </tr>
+    <tr th:each="idea : ${ideaList}">
+        <td th:text="${idea.ideaCode}"></td>
+        <td th:text="${idea.ideaName}"></td>
+        <td th:text="${idea.ideaRank}"></td>
+        <td th:text="${idea.ideaWorkCount}"></td>
+        <td th:text="${idea.categoryName}"></td>
+    </tr>
+</table>
+</body>
+</html>

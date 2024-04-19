@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>main</title>
 </head>
 <body>
-$END$
+<h1>아이디어 관리 프로그램</h1>
+<hr>
+<br>
+<h3>특정 아이디어 조회</h3>
+<button onclick="location.href='/idea/12'">조회</button>
+<br>
+<h3>아이디어 전체 조회</h3>
+<button onclick="location.href='/idea/list'">조회</button>
+<br>
+<h3>이름으로 검색</h3>
+<form action="/idea/search">
+    <input type="text" placeholder="아이디어 이름 입력" name="ideaNmae"><br>
+    <button type="submit">검색</button>
+</form>
+<br>
+<h3>아이디어 추가</h3>
+<button onclick="location.href='/idea/regist'">추가 패이지로 이동</button>
+<br>
+<h3>아이디어 수정</h3>
+<button onclick="location.href='/idea/modify'">수정 패이지로 이동</button>
+<br>
+<h3>아이디어 삭제</h3>
+<form action="/idea/delete">
+    <input type="number" name="ideaCode">
+    <button type="submit">아이디어 삭제</button>
+</form>
+<br>
+<label>for test...</label>
+<button onclick="createDummyData()">더미데이터 만들기</button>
+
+<script>
+    function createDummyData() {
+        fetch("/create_dummy")
+            .then(res => res.text())
+            .then(message => {
+                if (message) {
+                    alert(message);
+                }
+            });
+    }
+
+    message = `[[${message}]]`;
+    if (message) {
+        alert(message);
+    }
+</script>
 </body>
 </html>

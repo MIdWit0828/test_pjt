@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>특정 아이디어 조회</title>
+</head>
+<body>
+<h1>특정 아이디어 조회</h1>
+<table>
+    <tr>
+        <th>코드</th>
+        <th>이름</th>
+        <th>난이도</th>
+        <th>작업횟수</th>
+        <th>분류</th>
+    </tr>
+    <tr>
+        <td th:text="${idea.ideaCode}"></td>
+        <td th:text="${idea.ideaName}"></td>
+        <td th:text="${idea.ideaRank}"></td>
+        <td th:text="${idea.ideaWorkCount}"></td>
+        <td th:text="${idea.categoryName}"></td>
+    </tr>
+</table>
+</body>
+</html>

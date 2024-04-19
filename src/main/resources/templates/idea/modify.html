@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>수정패이지</title>
+</head>
+<body>
+<h1>아이디어 수정</h1>
+<form action="/idea/modify" method="post">
+    <label>수정하려는 아이디어의 코드 :</label>
+    <input type="number" name="ideaCode">
+    <div th:replace="~{common/idea_regist_rayout.html}"></div>
+</form>
+</body>
+</html>
